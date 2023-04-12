@@ -32,6 +32,7 @@ class Inventarisasi extends CI_Controller
 		);
 		$data['peruntukan'] = $this->M_inventarisasi->get_dd('peruntukan');
 		$data['lokasi'] = $this->M_inventarisasi->get_dd('lokasi');
+		$data['get_data'] = $this->M_inventarisasi->data_inventory();
 		$this->load->view('indexpage', $data);
 	}
 
@@ -98,6 +99,8 @@ class Inventarisasi extends CI_Controller
 			'pagesubtitle' => 'Lainnya',
 			'content' => 'content/lainnya',
 		);
+		$data['get_unit'] = $this->M_inventarisasi->data_unit();
+		$data['get_location'] = $this->M_inventarisasi->data_location();
 		$this->load->view('indexpage', $data);
 	}
 

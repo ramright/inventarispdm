@@ -70,7 +70,39 @@
                                 </tr>
                             </thead>
                             <tbody id="show_inv">
-
+                                <?php
+                                $no = 1;
+                                foreach ($get_data as $sub) {
+                                ?>
+                                    <tr>
+                                        <td><?= $no++ ?></td>
+                                        <td><?= $sub->nosertif ?></td>
+                                        <td><?= $sub->luas ?></td>
+                                        <td><?= $sub->nama_lokasi ?></td>
+                                        <td><?= $sub->lembaga_unit ?></td>
+                                        <td><?= $sub->timestamp ?></td>
+                                        <td>
+                                            <a href="javascript:void(0);" class="btn btn-primary editInvent" data-id="<?= $sub->idinvent ?>" data-sertif="<?= $sub->nosertif ?>" data-luas="<?= $sub->luas ?>" data-lokasi="<?= $sub->nama_lokasi ?>" data-peruntukan="<?= $sub->lembaga_unit ?>">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />
+                                                    <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" />
+                                                    <path d="M16 5l3 3" />
+                                                </svg>
+                                            </a>
+                                            &nbsp;
+                                            &nbsp;
+                                            <a href="javascript:void(0);" class="btn btn-danger deleteInvent" data-id="<?= $sub->idinvent ?>">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <path d="M4 7h16" />
+                                                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                                                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                                                    <path d="M10 12l4 4m0 -4l-4 4" />
+                                                </svg></a>
+                                        </td>
+                                    </tr>
+                                <?php }; ?>
                             </tbody>
                         </table>
                     </div>
@@ -240,7 +272,7 @@
 
 <script>
     $(document).ready(function() {
-        show_inventaris();
+        // show_inventaris();
         // Datatable
         $('#datatable').DataTable({
             language: {
@@ -295,7 +327,7 @@
                             '<td>' + '<a href="<?= base_url('inventarisasi?lokasi=') ?>' + data[i].nama_lokasi + '">' + data[i].nama_lokasi + '</a></td>' +
                             '<td>' + data[i].lembaga_unit + '</td>' +
                             '<td>' + data[i].timestamp + '</td>' +
-                            '<td>' + '<a href="javascript:void(0);" class="btn btn-primary editInvent" data-id="' + data[i].idinvent + '" data-sertif="' + data[i].nosertif + '" data-luas="' + data[i].luas + '" data-lokasi="' + data[i].nama_lokasi + '" data-peruntukan="' + data[i].lembaga_unit + '"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg></a>' + '   ' + '<a href="javascript:void(0);" class="btn btn-danger deleteInvent" data-id="' + data[i].idinvent + '"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7h16" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /><path d="M10 12l4 4m0 -4l-4 4" /></svg></a>' + '</td>' +
+                            '<td>' + '<a href="javascript:void(0);" class="btn btn-primary editInvent_" data-id="' + data[i].idinvent + '" data-sertif="' + data[i].nosertif + '" data-luas="' + data[i].luas + '" data-lokasi="' + data[i].nama_lokasi + '" data-peruntukan="' + data[i].lembaga_unit + '"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg></a>' + '   ' + '<a href="javascript:void(0);" class="btn btn-danger deleteInvent_" data-id="' + data[i].idinvent + '"><svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7h16" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /><path d="M10 12l4 4m0 -4l-4 4" /></svg></a>' + '</td>' +
                             '</tr>';
                     }
                     $('#show_inv').html(html);

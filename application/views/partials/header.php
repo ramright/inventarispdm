@@ -5,7 +5,7 @@
         </button>
         <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
             <a href=".">
-                <img src="<?= base_url('assets/static/') ?>logo.svg" width="110" height="32" alt="Tabler" class="navbar-brand-image">
+                <img src="<?= base_url('assets/static/') ?>barcode-svgrepo-com.svg" width="110" height="32" alt="Tabler" class="navbar-brand-image">
             </a>
         </h1>
         <div class="navbar-nav flex-row order-md-last">
@@ -35,7 +35,7 @@
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <a href="./sign-in.html" class="dropdown-item">Logout</a>
+                    <a href="#" class="dropdown-item">Logout</a>
                 </div>
             </div>
         </div>
